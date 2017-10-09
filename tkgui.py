@@ -71,8 +71,7 @@ def update():
 
 def post_attendance(uuid,scan_datetime,master):
     try:
-        re = requests.post("http://trackmii.in:9090/Employee/v1_0/postEmployeeAttendance", data={'uuid':uuid, 'timestamp':scan_datetime})
-        #re = requests.post("http://192.168.1.200:8000/Employee/v1_0/postEmployeeAttendance", data={'uuid':uuid, 'timestamp':scan_datetime})
+        re = requests.post("http://192.168.1.200:8000/Employee/v1_0/postEmployeeAttendance", data={'uuid':uuid, 'timestamp':scan_datetime})
         print re.status_code
         if re.status_code != 200:
             print ("'{}' not entered/exit".format(uuid))
@@ -102,8 +101,7 @@ def get_info(master,uuid, t2, scan_time, scan_datetime):
     print t1
     global uuid_list , display_list
     try:
-        re = requests.post("http://trackmii.in:9090/Employee/v1_0/employee_info", data={'uuid': uuid})
-        #re = requests.post("http://192.168.1.200:8000/Employee/v1_0/employee_info", data={'uuid': uuid})
+        re = requests.post("http://192.168.1.200:8000/Employee/v1_0/employee_info", data={'uuid': uuid})
     except Exception as e:
         print ("Network Error.....")
         uuid_list.remove(uuid)
